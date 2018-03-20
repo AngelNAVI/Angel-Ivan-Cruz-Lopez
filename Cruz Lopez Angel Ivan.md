@@ -10,7 +10,12 @@
 
 <script>
 
-var text = '{"precio":"decimal","liminf":"decimal","limsup":"decimal","tasa":"decimal","fija":"decimal","isan":"decimal","calcular_isan":"function() {precio= 200000;if (precio<75098.87) {"es_nivel_1":"function() {tasa=.02;fija=0.00;liminferior=0.01;limsuperior=75098.87; return es_nivel_1;}"} else {"¿es_2?":"function() {if (precio<90118.61)) {"es_nivel_2":"function() {tasa=.05;fija=1501.96;liminferior=75098.88;limsuperior=90118.61;return es_nivel_2;}"} else {"¿es_3?":"function() {if (precio<105138.43) {"es_nivel_3":"function() {tasa=.10;fija=2252.97;liminferior=98118.62;limsuperior=105138.43;return es_nivel_3;}"} else {"¿es_4?":"function() {if (precio<135117.89) {"es_nivel_4":"function() {tasa=.15;fija=3754.94;liminferior=105138.44;limsuperior=135177.89;return es_nivel_4;}" } else {"es_nivel_5":"function() {tasa=0.17;fija=8260.86;liminferior=135177.90;limsuperior=135177.89;limsuperior=135177.89;return es_nivel_5;}"}return ¿es_4?;}"}return ¿es_3?;}"}return ¿es_2?;}"}return calcular_isan;}"}';
+var text = '{ "precio" : "decimal", "liminf" : "decimal", "limsup" : "decimal", "tasa" : "decimal", "fija" : "decimal", "isan" : "decimal", "calcular_isan" : "function(){ precio = 200000; if( 75098.87 > precio) {return nivel_1;} else{ if( 90118.61 > precio) {return nivel_2;} else{ if(105138.44 > precio) {return nivel_3;} else{ if(135177.89 > precio) {return nivel_4;} else{ if( precio > 135177.89) {return nivel_5;} } } } } }"}'; 
+var nivel_1 = "	<br/>tasa = 0.02; <br/>fija = 0.00; <br/>liminferior = 0.01; <br/>limsuperior = 75098.87; "; 
+var nivel_2 = "	<br/>tasa = 0.05; <br/>fija = 1501.96; <br/>liminferior = 75098.88; <br/>limsuperior = 90118.62; "; 
+var nivel_3 = "	<br/>tasa = 0.10; <br/>fija = 2252.97; <br/>liminferior = 90118.62; <br/>limsuperior = 105138.43; "; 
+var nivel_4 = "	<br/>tasa = 0.15; <br/>fija = 3754.94; <br/>liminferior = 105138.43; <br/>limsuperior = 135177.89; "; 
+var nivel_5 = "	<br/>tasa = 0.17; <br/>fija = 8260.86; <br/>liminferior = 135177.89; ";
 var obj = JSON.parse(text);
 obj.calcular_isan = eval("(" + obj.calcular_isan + ")");
 
