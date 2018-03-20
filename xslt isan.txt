@@ -116,7 +116,7 @@ var  <xsl:value-of select="@nbmetodo"/> = "
 
 <xsl:otherwise>
 
-&lt;br/&gt;<xsl:value-of select="variable"/> =
+<xsl:value-of select="variable"/> =
 
 <xsl:value-of select="operando"/>;
 
