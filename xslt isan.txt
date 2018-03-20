@@ -1,3 +1,4 @@
+<Cruz Lopez Angel Ivan     Sec:2NM40>
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -8,11 +9,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <xsl:template match="ideal">
 <xsl:apply-templates select="atributos"/>
-<xsl:apply-templates select="metodos"/>
+<xsl:apply-templates select="metodos"/>}';
 </xsl:template>
 
 <xsl:template match="atributos"> 
-<xsl:apply-templates select="atributo"/>
+var text='{<xsl:apply-templates select="atributo"/>
 </xsl:template>
 
 <xsl:template match="atributo"> 
