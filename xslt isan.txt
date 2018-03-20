@@ -1,89 +1,162 @@
 <Cruz Lopez Angel Ivan     Sec:2NM40>
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+
+
 <xsl:template match="//ontologia">
-  <xsl:apply-templates/>
+  
+<xsl:apply-templates/>
+
 </xsl:template>
+
+
 
 <xsl:template match="ideal">
-  var text = '{ <xsl:apply-templates select="atributos"/>
-  <xsl:apply-templates select="metodos"/>
+  
+var text = '{ <xsl:apply-templates select="atributos"/>
+  
+<xsl:apply-templates select="metodos"/>
+
 </xsl:template>
+
+
 
 <xsl:template match="atributos"> 
- <xsl:apply-templates select="atributo"/>
+ 
+<xsl:apply-templates select="atributo"/>
+
 </xsl:template>
+
+
 
 <xsl:template match="atributo"> 
-  "<xsl:value-of select="@nbatributo"/>" :
+  
+"<xsl:value-of select="@nbatributo"/>":
+
 "<xsl:value-of select="@tipo"/>",
+
 </xsl:template>
 
+
+
 <xsl:template match="metodos">
-  <xsl:apply-templates select="metodo"/>
+ 
+<xsl:apply-templates select="metodo"/>
+
 </xsl:template>
+
+
 
 
 <xsl:template match="metodo">
+
 <xsl:choose>
+
 <xsl:when test="@nbmetodo='calcular_isan'">
-"<xsl:value-of select="@nbmetodo"/>" :  "function(){
+
+"<xsl:value-of select="@nbmetodo"/>":
+"function(){
 <xsl:apply-templates select="asignacion"/> 
+
 <xsl:apply-templates select="decision"/>}"}';
+
 </xsl:when>
-<xsl:otherwise>
-<xsl:choose>
-<xsl:when test="funcion='si'">
-<br/>var  <xsl:value-of select="@nbmetodo"/> = "	
-<xsl:apply-templates select="asignacion"/> 
-<xsl:apply-templates select="decision"/>";
-</xsl:when>
+
 <xsl:otherwise>
 
-<xsl:value-of select="@nbmetodo"/> 
+<xsl:choose>
+
+<xsl:when test="funcion='si'">
+<br/>
+var  <xsl:value-of select="@nbmetodo"/> = "
 <xsl:apply-templates select="asignacion"/> 
+
+<xsl:apply-templates select="decision"/>";
+
+</xsl:when>
+
+<xsl:otherwise>
+
+
+<xsl:value-of select="@nbmetodo"/>
+
+<xsl:apply-templates select="asignacion"/> 
+
 <xsl:apply-templates select="decision"/>
 
-</xsl:otherwise>
-</xsl:choose>
 
 </xsl:otherwise>
+
 </xsl:choose>
+
+
+</xsl:otherwise>
+
+</xsl:choose>
+
 </xsl:template>
+
+
 
 
 <xsl:template match="asignacion">
+
 <xsl:choose>
+
 <xsl:when test="variable='precio'">
+
 <xsl:value-of select="variable"/> =
+
 <xsl:value-of select="operando"/>;
+
 </xsl:when>
+
 <xsl:otherwise>
+
 &lt;br/&gt;<xsl:value-of select="variable"/> =
+
 <xsl:value-of select="operando"/>;
+
 </xsl:otherwise>
+
 </xsl:choose>
 
+
 </xsl:template>
+
+
 
 <xsl:template match="decision">
 
+
 if(<xsl:value-of select="condicion"/>)
+
 <xsl:apply-templates select="verdadero"/>
+
 <xsl:apply-templates select="falso"/>
 
+
 </xsl:template>
+
+
 <xsl:template match="verdadero">
 
+
 {return <xsl:apply-templates select="metodo"/>;}
+
 </xsl:template>
 
+
+
 <xsl:template match="falso">
+
 else{
-<xsl:apply-templates select="decision"/>
+ <xsl:apply-templates select="decision"/>
 }
+
 
 </xsl:template>
 </xsl:stylesheet>
