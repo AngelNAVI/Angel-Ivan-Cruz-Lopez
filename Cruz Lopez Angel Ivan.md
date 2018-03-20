@@ -21,7 +21,7 @@ obj.calcular_isan = eval("(" + obj.calcular_isan + ")");
 
 document.getElementById("demo").innerHTML = obj.precio + ", " + obj.calcular_isan(); 
 
-</script>l
+</script>
 
 </body>
 </html>
