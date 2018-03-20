@@ -33,7 +33,7 @@ var text = '{ <xsl:apply-templates select="atributos"/>
 </xsl:when>
 <xsl:otherwise>
 <xsl:choose>
-<xsl:when test="funcion='si'"><br/>
+<xsl:when tes="funcion='si'"><br/>
 var  <xsl:value-of select="@nbmetodo"/> = "
 <xsl:apply-templates select="asignacion"/> 
 <xsl:apply-templates select="decision"/>";
