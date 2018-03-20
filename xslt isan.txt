@@ -28,8 +28,7 @@ var text = '{ <xsl:apply-templates select="atributos"/>
 <xsl:choose>
 <xsl:when test="@nbmetodo='calcular_isan'">
 "<xsl:value-of select="@nbmetodo"/>":
-"function(){
-<xsl:apply-templates select="asignacion"/> 
+"function(){<xsl:apply-templates select="asignacion"/> 
 <xsl:apply-templates select="decision"/>}"}';
 </xsl:when>
 <xsl:otherwise>
